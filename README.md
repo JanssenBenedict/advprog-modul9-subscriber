@@ -9,3 +9,6 @@ AMQP, which stands for Advanced Message Queuing Protocol, is an open standard ap
 - The first guest in guest:guest@localhost:5672 is the username that is used to authenticate with RabbitMQ.
 - The second guest in guest:guest@localhost:5672 is the password for the username that is used to authenticate with RabbitMQ.
 - The localhost:5672 is the host (our local machine, "localhost") and the port (the default port used by RabbitMQ, "5672") where the RabbitMQ broker is running.
+
+<br><br>On the "Queued messages" chart, we can see a drastic increase in the amount of queues. This is caused by the large amount of messages sent by the publisher to the message broker, but not yet processed by the slower subscriber. On my local machine, I reached the total amount of 30 queues. This is the result of the subcriber taking much more time to process each message in the queue, resulting in a queue buildup due to the publisher sending out messages faster than the subcriber can process them.
+![alt text](ScreenshotSubscriber1.png)
